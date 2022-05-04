@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "A project bootstrap for Node.js projects",
   "main": "index.js",
-  "bin": "./index.js",
+  "bin": {
+    "kickstart": "./index.js"
+  },
   "repository": {
     "type": "git",
     "url": "http://github.com/aqazix/node-bootstrap_v1.git"
