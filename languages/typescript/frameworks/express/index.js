@@ -1,7 +1,6 @@
-const inquirer = require("inquirer");
 const npm = require("npm");
 
-const writeFileContent = require("../../../../util");
+const { writeFileContent } = require("../../../../util");
 
 module.exports = Express = async () => {
   await new Promise(async (resolve, reject) => {

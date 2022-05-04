@@ -4,7 +4,7 @@ const npm = require("npm");
 const Express = require("./frameworks/express");
 
 const commonFiles = require("../../commonFiles.json");
-const writeFileContent = require("../../util");
+const { startupProject, writeFileContent } = require("../../util");
 
 module.exports = Typescript = async () => {
   const typescriptFiles = require("./files.json");
@@ -14,6 +14,8 @@ module.exports = Typescript = async () => {
       if (error) {
         reject(error);
       } else {
+        startupProject(reject);
+
         npm.config.set("save-dev", true);
         npm.commands.i([
           "@types/jest", "@types/node", "@typescript-eslint/eslint-plugin",
