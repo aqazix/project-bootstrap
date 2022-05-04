@@ -1,0 +1,25 @@
+{
+  "name": "node-bootstrap_v1",
+  "version": "1.0.0",
+  "description": "A project bootstrap for Node.js projects",
+  "main": "index.js",
+  "bin": "./index.js",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/aqazix/node-bootstrap_v1.git"
+  },
+  "keywords": [
+    "bootstrap",
+    "typescript",
+    "javascript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "inquirer": "^8.2.4",
+    "npm": "^7.24.2"
+  },
+  "devDependencies": {
+    "@types/npm": "^7.19.0"
+  }
+}
