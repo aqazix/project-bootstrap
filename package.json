@@ -1,5 +1,5 @@
 {
-  "name": "node-bootstrap_v1",
+  "name": "project-bootstrap",
   "version": "1.0.0",
   "description": "A project bootstrap for Node.js projects",
   "main": "index.js",
