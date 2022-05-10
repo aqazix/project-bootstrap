@@ -2,6 +2,7 @@
 const inquirer = require("inquirer");
 
 const Typescript = require("./languages/typescript");
+const { writeFileContent } = require("./util");
 
 const languages = {
   Typescript,
@@ -18,5 +19,9 @@ inquirer.prompt([
   }
 ])
   .then(async (answers) => {
+    const commonFiles = require("./commonFiles.json");
+    const commonFilesKeys = Object.keys(commonFiles);
+
+    await Promise.all(commonFilesKeys.map(file => writeFileContent(file, commonFiles)));
     await languages[answers.choice]();
   });

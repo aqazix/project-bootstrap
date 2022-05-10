@@ -4,7 +4,7 @@ const npm = require("npm");
 const Express = require("./frameworks/express");
 
 const commonFiles = require("../../commonFiles.json");
-const { startupProject, writeFileContent } = require("../../util");
+const { installBasePackages, startupProject, writeFileContent } = require("../../util");
 
 module.exports = Typescript = async () => {
   const typescriptFiles = require("./files.json");
@@ -16,23 +16,21 @@ module.exports = Typescript = async () => {
       } else {
         startupProject(reject);
 
+        installBasePackages(reject);
+
         npm.config.set("save-dev", true);
         npm.commands.i([
           "@types/jest", "@types/node", "@typescript-eslint/eslint-plugin",
-          "@typescript-eslint/parser", "casual", "dotenv",
-          "eslint", "eslint-config-airbnb-base", "eslint-config-prettier",
-          "eslint-import-resolver-typescript", "eslint-plugin-import", "eslint-plugin-import-helpers",
-          "eslint-plugin-prettier", "husky", "jest",
-          "module-alias", "prettier", "ts-jest",
-          "ts-node", "typescript"
-        ], (error, result) => {
+          "@typescript-eslint/parser", "eslint-import-resolver-typescript", "module-alias",
+          "ts-jest", "ts-node", "typescript"
+        ], (error) => {
           if (error) {
             reject(error);
-          } else {
-            resolve(result);
           }
         });
         npm.config.set("save-dev", false);
+
+        resolve();
       }
     });
   });
